@@ -28,7 +28,8 @@ class Customer:
     # Submit_order takes a cashier, a stall and an amount as parameters, 
     # it deducts the amount from the customer’s wallet and calls the receive_payment method on the cashier object
     def submit_order(self, cashier, stall, amount): 
-        pass
+        self.wallet -= amount
+        cashier.receive_payment(stall, amount) #need parameters?
 
     # The __str__ method prints the customer's information.    
     def __str__(self):
@@ -71,8 +72,36 @@ class Cashier:
 
 ## Complete the Stall class here following the instructions in HW_4_instructions_rubric
 class Stall:
+    def __init__(self, name, inventory, cost = 7, earnings = 0)
+        self.name = name
+        self.inventory = inventory
+        self.cost = cost
+        self.earnings = earnings
+
+    def has_item(self, name, quantity): 
+        if quantity <= self.inventory[name]
+            return True
+        return False
+#if the food quantity is less than the quantity of food in the inventory accessed in the dictionary by the key the food name, then it is in stock.
+#is name 'name' referring to name of person or a food name?
+     def process_order(self, name, quantity):
+        if stall.has_item(name, quantity) == True:
+            self.inventory[name] -= quantity
+            #if has_item evaluates to true
+            #how to use a method evaluating to true as a conditional in python?
+            #after decreasing quantity, should it incrament earnings
+            
+    def stock_up(self, name, quantity):
+        if name in self.inventory:
+            self.inventory[name] += quantity
+        self.inventory.append{name: quantity} 
+#can dictionaries use append? is inventory even a dictionary?
+    def compute_cost(self, quantity):
+        total = self.cost * quantity 
+        return total
     
-    pass
+    def __str__(self):
+        return f"Hello, we are {self.name}. This is the current menu {list(self.inventory.keys())}. We charge ${self.cost} per item. We have ${self.earnings} in total."
 
 
 class TestAllMethods(unittest.TestCase):
