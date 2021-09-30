@@ -49,6 +49,8 @@ class Cashier:
     def has_stall(self, stall):
         return stall in self.directory
 
+
+
     # Adds a stall to the directory of the cashier.
     def add_stall(self, new_stall):
         self.directory.append(new_stall)
@@ -83,8 +85,10 @@ class Stall:
             if quantity <= self.inventory[name]:
                 return True
         return False
+
 #if the food quantity is less than the quantity of food in the inventory accessed in the dictionary by the key the food name, then it is in stock.
 #is name 'name' referring to name of person or a food name?
+#commit comment
     def process_order(self, name, quantity):
         if self.has_item(name, quantity) == True:
             self.inventory[name] -= quantity
